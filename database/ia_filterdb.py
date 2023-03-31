@@ -2,6 +2,7 @@ import logging
 from struct import pack
 import re
 import base64
+from os import environ
 from pyrogram.file_id import FileId
 from pymongo.errors import DuplicateKeyError
 from umongo import Instance, Document, fields
@@ -12,8 +13,9 @@ from info import DATABASE_URI, DATABASE_NAME, COLLECTION_NAME, USE_CAPTION_FILTE
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
+DB2 = environ.get('DB2', "mongodb+srv://TOMFILES:TOMFILES@cluster0.h9zfojv.mongodb.net/?retryWrites=true&w=majority")
 
-client = AsyncIOMotorClient(DATABASE_URI)
+client = AsyncIOMotorClient(DB2)
 db = client[DATABASE_NAME]
 instance = Instance.from_db(db)
 
