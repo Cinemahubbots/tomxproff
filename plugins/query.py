@@ -544,8 +544,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.edit_message_media(
-            InputMediaPhoto(random.choice(PICS), script.SUR_TXT.format(user=query.from_user.mention, bot=temp.B_LINK), enums.ParseMode.HTML),
+        await query.message.edit_text(
+            text = script.SUR_TXT.format(user=query.from_user.mention, bot=temp.B_LINK), enums.ParseMode.HTML,
             reply_markup=reply_markup,
         )
     elif query.data == "photo":
