@@ -547,7 +547,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_text(
             text = script.SUR_TXT.format(user=query.from_user.mention, bot=temp.B_LINK), enums.ParseMode.HTML,
             reply_markup=reply_markup,
-        )
+         )
     elif query.data == "photo":
         buttons = [[
             InlineKeyboardButton(text="𝖡𝗋𝗂𝗀𝗍𝗁", callback_data="bright"),
