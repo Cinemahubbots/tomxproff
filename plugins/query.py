@@ -26,6 +26,17 @@ from image.edit_5 import normalglitch_1, normalglitch_2, normalglitch_3, normalg
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
+BTN = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("⚡Mᴀɪɴ Gʀᴏᴜᴘ⚡", url="https://t.me/+ebT3TGDywLM0OGY9"),
+                    InlineKeyboardButton("💥Sʜᴀʀᴇ💥", url="https://t.me/share/url?url=https://t.me/UPDATECHANNELHUB")
+                ],
+		        [
+                    InlineKeyboardButton("🎥NEW MOVIES 🎥", url="https://t.me/+Hy9phk3GznsxNGU1"),
+                ]    
+            ]
+)
 
 
 @Client.on_callback_query()
@@ -296,7 +307,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
-                    protect_content=True if ident == "filep" else False 
+                    protect_content=True if ident == "filep" else False,
+                    reply_markup=BTN
                 )
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
         except UserIsBlocked:
@@ -331,7 +343,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             chat_id=query.from_user.id,
             file_id=file_id,
             caption=f_caption,
-            protect_content=True if ident == 'checksubp' else False
+            protect_content=True if ident == 'checksubp' else False,
+            reply_markup=BTN
         )
 
 
